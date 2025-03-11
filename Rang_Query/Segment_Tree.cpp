@@ -1,9 +1,9 @@
 struct SegmentTree {
-private:
 #define leftNode 2 * node
 #define rightNode 2 * node + 1
 #define mid (l + r) / 2
 
+private:
     ll ln, skip;
     vector <ll> seg;
     function <ll(ll, ll)> merge;
@@ -33,7 +33,7 @@ private:
     }
 
 public:
-    SegmentTree(int n, function <ll(ll, ll)> op, int _skip) {
+    SegmentTree(int n, const function <ll(ll, ll)>& op, int _skip) {
         ln = n;
         skip = _skip;
         merge = op;
