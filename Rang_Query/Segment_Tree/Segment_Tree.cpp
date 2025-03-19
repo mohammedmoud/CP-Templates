@@ -2,7 +2,6 @@ struct Node {
 	ll mn, cnt;
 	Node (ll _mn = oo, ll _cnt = 0) {mn = _mn, cnt = _cnt;}
 };
-
 struct SegmentTree {
 #define leftNode 2 * node
 #define rightNode 2 * node + 1
@@ -11,11 +10,11 @@ struct SegmentTree {
 private:
 	ll ln;
 	vector <Node> seg;
-	function <Node (Node, Node)> merge;
+	function <Node (const Node&, const Node&)> merge;
 
-	void update(int l, int r, int node, int idx, ll new_val) {
+	void update(int l, int r, int node, int idx, Node new_val) {
 		if (l == r) {
-			seg[node] = Node(new_val, 1);
+			seg[node] = new_val;
 			return;
 		}
 
@@ -38,13 +37,13 @@ private:
 	}
 
 public:
-	SegmentTree(int n, const function <Node (Node, Node)> &op) {
+	SegmentTree(int n, const function <Node (const Node&, const Node&)> &op) {
 		ln = n;
 		merge = op;
 		seg.resize(4 * ln);
 	}
 
-	void update(int idx, ll new_val) {
+	void update(int idx, Node new_val) {
 		update(1, ln, 1, idx, new_val);
 	}
 	
