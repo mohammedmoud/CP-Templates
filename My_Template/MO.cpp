@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-// #include "Debug.hpp"
 #include <ext/pb_ds/assoc_container.hpp>
 #include <ext/pb_ds/tree_policy.hpp>
 #define len(s) int(s.size())
@@ -10,7 +9,6 @@
 #define fi first
 #define sc second
 #define ll long long int
-// #define double long double
 #define endl '\n'
 #define yes(b) (b ? "YES" : "NO")
 #define yes2(b) (b ? "Yes" : "No")
