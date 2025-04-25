@@ -38,6 +38,10 @@ struct HLD {
 		}
 	}
 
+	pair <int, int> subTree(int u) {
+		return {id[u], id[u] + sz[u] - 1};
+	}
+
 	int getChild(int u, int v) {
 		if (par[u] == v) return u;
 		return v;

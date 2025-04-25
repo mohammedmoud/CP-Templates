@@ -92,7 +92,7 @@ struct LCA {
 		}
 	}
 
-	// Check node k is in path from u to v
+	// Check node k is in path between u and v
 	bool on_path(int u, int v, int k) {
 		int lca = get_lca(u, v);
 		return ((get_lca(u, k) == k or get_lca(v, k) == k) and get_lca(k, lca) == lca);
