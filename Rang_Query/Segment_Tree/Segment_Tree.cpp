@@ -2,6 +2,7 @@ struct Node {
 	ll mn, cnt;
 	Node (ll _mn = oo, ll _cnt = 0) {mn = _mn, cnt = _cnt;}
 };
+
 struct SegmentTree {
 #define leftNode 2 * node
 #define rightNode 2 * node + 1
