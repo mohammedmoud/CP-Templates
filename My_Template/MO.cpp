@@ -1,6 +1,13 @@
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
 #include <ext/pb_ds/tree_policy.hpp>
+
+#ifndef ONLINE_JUDGE
+    #include "library/debug.h"
+#else
+    #define debug(...)
+#endif
+
 #define len(s) int(s.size())
 #define all(s) s.begin(),s.end()
 #define rall(s) s.rbegin(),s.rend()
@@ -8,6 +15,7 @@
 #define uni(s) s.erase(unique(all(s)), s.end());
 #define fi first
 #define sc second
+#define ld long double
 #define ll long long int
 #define endl '\n'
 #define yes(b) (b ? "YES" : "NO")
@@ -31,6 +39,13 @@ using namespace __gnu_pbds;
 #define ordered_set tree<int, null_type,less<>, rb_tree_tag,tree_order_statistics_node_update>// set
 typedef tree<int, null_type,less_equal<int>, rb_tree_tag,tree_order_statistics_node_update> ordered_multiset;
 
+std::mt19937 rng((int) std::chrono::steady_clock::now().time_since_epoch().count());
+ll rand(ll a, ll b) {
+    return uniform_int_distribution<ll>(a, b)(rng);
+}
+ 
+
+
 string to = "RLDU";
 const int dx[] = {0, 0, 1, -1, -1, 1, -1, 1};
 const int dy[] = {1, -1, 0, 0, -1, 1, 1, -1};
@@ -38,6 +53,7 @@ const ll mod = 1e9 + 7;
 const ll mod2 = 998244353;
 const ll oo = 0x3f3f3f3f;
 const ll OO = 0x3f3f3f3f3f3f3f3f; 
+const ld EPS = 1e-9;
 
 void MO() {
 	ios_base::sync_with_stdio(0),cin.tie(nullptr),cout.tie(nullptr);
