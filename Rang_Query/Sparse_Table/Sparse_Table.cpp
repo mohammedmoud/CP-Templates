@@ -28,12 +28,13 @@ struct SparseTable {
     }
 
     TP fastQuery(int l, int r) {
+        if (l > r) return SKIP;
         ll pw = __lg(r - l + 1);
         return merge(T[l][pw], T[r - (1 << pw) + 1][pw]);
     }
 
     TP query (int l, int r) {
-        ll ret = SKIP;
+        TP ret = SKIP;
         ll sz = r - l + 1;
         for (int pw = 23; pw >= 0; pw--) {
             if (isON(sz, pw)) {
