@@ -20,6 +20,7 @@ struct SparseTable {
         SKIP = _skip;
         merge = _merge;
         T = vector <vector <TP>> (n + 5, vector <TP> (25, SKIP));
+        init();
         build();
     }
 
