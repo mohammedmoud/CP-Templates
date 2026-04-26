@@ -14,6 +14,10 @@ struct SparseTable {
         } 
     }
 
+    SparseTable() {
+
+    }
+
     SparseTable(vector <TP> _v, function <TP (TP, TP)> _merge, TP _skip) {
         v = _v;
         n = len(v);
@@ -37,12 +41,15 @@ struct SparseTable {
     }
 
     TP fastQuery(int l, int r) {
-        if (l > r) return SKIP;
+        if (l > r or l < 0 or r >= n) return SKIP;
+        
         ll pw = LOG[r - l + 1];
         return merge(T[l][pw], T[r - (1 << pw) + 1][pw]);
     }
-
+    
     TP query (int l, int r) {
+        if (l > r or l < 0 or r >= n) return SKIP;
+
         TP ret = SKIP;
         ll sz = r - l + 1;
         for (int pw = 23; pw >= 0; pw--) {
