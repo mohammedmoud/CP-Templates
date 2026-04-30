@@ -7,7 +7,7 @@ struct num {
  
     num (ll x) {
         for (int i = 0; i < 6; i++) {
-            v[i] = rand(1, 1e12);
+            v[i] = rand(1, 1e9);
         }
     }
  
@@ -43,38 +43,11 @@ struct num {
         }
         return result;
     }
-};
- 
-signed main() {
-    MO();
- 
-    int t;
-    cin >> t;
- 
-    while (t--) {
-        int n, q;
-        cin >> n >> q;
- 
-        map <ll, num> mp;
-        vector <num> pre(n + 3);
-        for (int i = 1; i <= n; i++) {
-            ll x;
-            cin >> x;
- 
-            if (mp.find(x) == mp.end()) {
-                mp[x] = num(x);
-            }
- 
-            pre[i] = (pre[i - 1] + mp[x]);
+    friend ostream& operator << (ostream &out, const num &x) {
+        for (int i = 0; i < 6; i++) {
+            out << x.v[i];
+            if (i < 5) out << " ";
         }
- 
-        while (q--) {
-            int l, r;
-            cin >> l >> r;
- 
-            cout << yes((pre[r] - pre[l - 1]) == num()) << endl;
-        }
+        return out;
     }
- 
-    return 0;
-}
+};
