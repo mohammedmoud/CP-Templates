@@ -39,4 +39,25 @@ struct Trie {
         }
         return cur->PRE;
     }
+
+    void remove(const string &s) {
+        remove(s, 0, root);
+    }
+
+    void remove(const string &s, int i, Node *cur) {
+        if (i >= len(s)) return;
+        int idx = pos(s[i]);
+        if (cur -> CH[idx]) {
+            remove(s, i + 1, cur -> CH[idx]);
+            cur -> CH[idx] -> PRE -= 1;
+            if (i == len(s) - 1) {
+                cur -> CH[idx] -> END -= 1;
+            }
+
+            if (cur -> CH[idx] -> PRE == 0) {
+                delete cur -> CH[idx];
+                cur -> CH[idx] = 0;
+            }
+        }
+    }
 };
